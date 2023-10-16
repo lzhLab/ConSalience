@@ -6,10 +6,10 @@
 
 ## 1.  Prepare data
 
-      1. Sign up in the [official 3D-IRCADb website](https://www.ircad.fr/research/data-sets/liver-segmentation-3d-ircadb-01/) and download the dataset. Convert them to numpy format, clip the images within [0, 400], normalize each 3D image to [0, 1], and extract 2D slices from 3D volume for training cases while keeping the 3D volume in h5 format for testing cases.
-      2. Generating the connectivity-aware salience of each 3D volume. The relevant code for generating saliency maps can be found in "./salience_generation.py".
-      3. You can also send an Email directly to xiaoxu_u@qq.com to request the preprocessed data for reproduction.
-   4. The directory structure of the whole project is as follows:
+1. Sign up in the [official 3D-IRCADb website](https://www.ircad.fr/research/data-sets/liver-segmentation-3d-ircadb-01/) and download the dataset. Convert them to numpy format, clip the images within [0, 400], normalize each 3D image to [0, 1], and extract 2D slices from 3D volume for training cases while keeping the 3D volume in h5 format for testing cases.
+2. Generating the connectivity-aware salience of each 3D volume. The relevant code for generating saliency maps can be found in "./salience_generation.py".
+3. You can also send an Email directly to xiaoxu_u@qq.com to request the preprocessed data for reproduction.
+4. The directory structure of the whole project is as follows:
 
 ```bash
 .
