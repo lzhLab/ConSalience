@@ -1,0 +1,11 @@
+torch==1.13.1
+torchvision==0.9.0
+numpy
+rich
+loguru
+tensorboard
+tensorboardX
+medpy
+h5py
+scipy
+scikit-image
