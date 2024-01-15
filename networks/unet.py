@@ -14,6 +14,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+from .square_wavelet_module import Wavelet
 
 class DoubleConv(nn.Module):
     """(convolution => [BN] => ReLU) * 2"""
@@ -109,7 +110,16 @@ class UNet(nn.Module):
         self.up4 = Up(128, 64, bilinear)
         self.outc = OutConv(64, n_classes)
 
+        self.wavelet = Wavelet(1, 1)
+
     def forward(self, x):
+        # Salience generation
+        x_1 = self.wavelet(x.transpose(4, 2)).transpose(4, 2)
+        x_2 = self.wavelet(x.transpose(4, 3)).transpose(4, 3)
+        x_3 = self.wavelet(x)
+        # Integration
+        x = x + x * torch.cat([x_1, x_2, x_3], dim=1)
+
         e1 = self.inc(x)
         e2 = self.down1(e1)
         e3 = self.down2(e2)
