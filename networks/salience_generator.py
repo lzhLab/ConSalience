@@ -93,9 +93,9 @@ class GaborSquare(nn.Module):
         return even_out + odd_out  # (B, 12, H, W)
 
 
-class Wavelet(nn.Module):
+class Salience(nn.Module):
     def __init__(self, in_channels=1, out_channels=1, scales=5):
-        super(Wavelet, self).__init__()
+        super(Salience, self).__init__()
         # 3, 5, 7, ..., 2*scales+1
         k_list = [2 * i + 1 for i in range(1, scales+1)]  
         self.gabor_list = [
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     print(k.round(4))
 
     inputs = torch.randn(1, 1, 96, 96, 96).cuda()
-    model = Wavelet(in_channels=1, out_channels=1).cuda()
+    model = Salience(in_channels=1, out_channels=1).cuda()
     outputs = model(inputs)
     print(outputs.shape)
 
