@@ -24,7 +24,6 @@ class RandomCrop3D(object):
     def __call__(self, sample):
         image, label = sample['image'], sample['label']
         crop_size = self.crop_size
-
         if crop_size[0] > image.shape[0] or crop_size[1] > image.shape[1] or crop_size[2] > image.shape[2]:
             print("crop_size: {} is bigger than img_size: {}".format(crop_size, image.shape))
 
@@ -70,6 +69,7 @@ class LiverVesselVolume(Dataset):
     def __getitem__(self, idx):
         case_name = self.sample_list[idx].strip('\n')
         file_path = os.path.join(self.root_dir, case_name + ".h5")
+        print("file_path------>",file_path)
         with h5py.File(file_path) as f:
             image_vol = f["image"][:]
             label_vol = f["label"][:]
@@ -86,7 +86,7 @@ class LiverVesselVolume(Dataset):
 
 if __name__ == "__main__":
     from torchvision import transforms
-    db_train = LiverVesselVolume(split="all")
+    db_train = LiverVesselVolume(root_dir="../data/LiVS/data_h5", list_dir="../list/LiVS", split="train", transform=None)
     print(db_train.__len__())
 
     for i in range(db_train.__len__()):
