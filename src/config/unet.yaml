@@ -1,0 +1,30 @@
+model:
+  name: "UNet3D"
+  backbone: "unet3d"
+  in_channels: 1          # baseline
+  out_channels: 1
+  base_filters: 32
+
+train:
+  epochs: 300
+  batch_size: 4
+  lr: 0.01
+  momentum: 0.9
+  weight_decay: 1e-4
+  scheduler:
+    type: "poly"
+    power: 0.9
+
+data:
+  dataset: "3D-IRCADb"
+  split_path: "data/splits/ircadb.json"
+  use_salience: true       # ← 切换 baseline / +salience
+  salience_params:
+    delta_theta: 15
+    delta_sigma: 1.0
+    K: 5
+
+logging:
+  log_dir: "./logs/unet"
+  save_ckpt: true
+  ckpt_dir: "./ckpt/unet"

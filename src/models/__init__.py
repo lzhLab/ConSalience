@@ -1,0 +1,4 @@
+# src/models/__init__.py
+from src.models.build_model import build_model
+
+__all__ = ["build_model"]
