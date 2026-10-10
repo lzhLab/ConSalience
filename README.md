@@ -17,10 +17,21 @@ plugged into almost any 3D encoder–decoder backbone.
 
 ## 0. Prepare Data
 
-1. Sign up on the [official 3D-IRCADb website](https://www.ircad.fr/research/data-sets/liver-segmentation-3d-ircadb-01/) and download the dataset.
-2. Convert the CT volumes to NumPy arrays, clip the intensities to `[0, 400]`, normalize each 3D image to `[0, 1]`, and then transform the 3D NumPy arrays to HDF5 (`.h5`) format for training and testing.
-3. For reproduction, you can also request our preprocessed data by sending an email to: `xiaoxu_u@qq.com`.
-4. The overall project structure is as follows.
+1. Sign up on the [official 3D-IRCADb website](https://www.ircad.fr/research/data-sets/liver-segmentation-3d-ircadb-01/) and download the **3D-IRCADb** liver CT dataset.
+
+2. Download the **MSD (Medical Segmentation Decathlon) Liver** dataset from the official challenge website:  
+   https://decathlon.grand-challenge.org  
+   (Task 03 – Liver, direct data link: https://msd-for-monai.s3-us-west-2.amazonaws.com/Task03_Liver.tar)
+
+3. Download the **LiTS / LiVS liver dataset** from the LiTS challenge site:  
+   https://competitions.codalab.org/competitions/17094  
+   (original LiTS data; use your own preprocessing pipeline to derive the “LiVS” variant used in this project)
+
+4. Convert all CT volumes to NumPy arrays, clip the intensities to `[0, 400]`, normalize each 3D image to `[0, 1]`, and then transform the 3D NumPy arrays to HDF5 (`.h5`) format for training and testing.
+
+5. For reproduction, you can also request our preprocessed data by sending an email to: `xiaoxu_u@qq.com`.
+
+6. The overall project structure is as follows.
 
 ---
 
