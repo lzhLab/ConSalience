@@ -3,9 +3,8 @@
 - Implementation of our work: [Connectivity-aware salience demystifies inconspicuous liver vessel segmentation](https://arxiv.org/abs/xxxx.xxxxx).
 
 ![](./imgs/Figure2.png)
-<div align="center">
 
-## 📌 Abstract
+## Abstract
 
 Inconspicuous liver vessels are notoriously hard to segment due to their low contrast against
 surrounding parenchyma, thin tubular geometry and fragmented appearance in 3D CT volumes.
